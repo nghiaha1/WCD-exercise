@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WCD-exercise:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/WCD_exercise_war</output-path>
+    <root id="archive" name="WCD-exercise_war.war">
+      <element id="artifact" artifact-name="WCD-exercise:war exploded" />
+    </root>
+  </artifact>
+</component>
