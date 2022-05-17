@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class EditCustomerServlet extends HttpServlet {
 
     private CustomerModel customerModel;
-
     public EditCustomerServlet() {
         this.customerModel = new MySqlCustomerModel();
     }
@@ -30,7 +29,7 @@ public class EditCustomerServlet extends HttpServlet {
         Customer customer = customerModel.findById(ID);
         // nếu không trả về trang 404
         if (customer == null) {
-            req.setAttribute("message", "Student not found!");
+            req.setAttribute("message", "Customer not found!");
             req.getRequestDispatcher("/admin/errors/404.jsp").forward(req, resp);
         } else {
             // nếu có trả về trang detail
@@ -59,7 +58,7 @@ public class EditCustomerServlet extends HttpServlet {
             Customer customer = new Customer(name, phone,img, birthday);
             // validate dữ liệu
             if (customerModel.update(ID,customer) != null) {
-                resp.sendRedirect("/admin/students/list");
+                resp.sendRedirect("/admin/customers/list");
             } else {
                 // nếu có trả về trang form
                 req.setAttribute("customer", customer);

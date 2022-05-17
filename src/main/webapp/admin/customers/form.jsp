@@ -6,8 +6,10 @@
     int action = (int) request.getAttribute("action");
     HashMap<String, String> errors = (HashMap<String, String>) request.getAttribute("errors");
     String url = "/admin/customers/create";
+    String disabled = "";
     if(action == 2){
         url = "/admin/customers/edit";
+        disabled = "readlony";
     }
     if(errors == null){
         errors = new HashMap<>();
@@ -76,17 +78,18 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <form action="<%=url%>" method="post">
+                                    <% if (action == 2) { %>
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
                                             <div class="form-group">
                                                 <label>Customer's ID</label>
-                                                <input type="text" name="id" value="<%=customer.getID()%>" class="form-control" placeholder="Please enter customer's ID">
-                                                <%if(errors.containsKey("phone")){%>
-                                                <span class="text-danger">* <%=errors.get("ID")%></span>
-                                                <%}%>
+                                                <input type="text" name="rollNumber" value="<%=customer.getID()%>" class="form-control" placeholder="Please enter customer's ID" readonly>
                                             </div>
                                         </div>
                                     </div>
+                                    <% } %>
+
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
@@ -103,7 +106,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Phone</label>
-                                                <input type="text" name="phone" value="<%=customer.getPhone()%>" class="form-control" placeholder="Please enter customer's phone">
+                                                <input type="tel" name="phone" value="<%=customer.getPhone()%>" class="form-control" placeholder="Please enter customer's phone">
                                                 <%if(errors.containsKey("phone")){%>
                                                     <span class="text-danger">* <%=errors.get("phone")%></span>
                                                 <%}%>
@@ -113,8 +116,8 @@
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" name="img" value="<%=customer.getImg()%>" class="form-control" placeholder="Please enter student's image">
+                                                <label>Image</label>
+                                                <input type="text" name="img" value="<%=customer.getImg()%>" class="form-control" placeholder="Please enter student's image">
                                                 <%if(errors.containsKey("email")){%>
                                                 <span class="text-danger">* <%=errors.get("email")%></span>
                                                 <%}%>

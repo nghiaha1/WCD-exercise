@@ -48,11 +48,13 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Rollnumber</th>
-                                        <th>Fullname</th>
+                                        <th>ID</th>
+                                        <th>Full Name</th>
                                         <th>Phone</th>
                                         <th>Joined At</th>
-                                        <th>Action</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -63,11 +65,9 @@
                                         <td><%=st.getName()%></td>
                                         <td><%=st.getPhone()%></td>
                                         <td><%=st.getJoinedAt()%></td>
-                                        <td>
-                                            <a href="/admin/customers/detail?id=<%=st.getID()%>">Detail</a>&nbsp;&nbsp;
-                                            <a href="/admin/customers/edit?id=<%=st.getID()%>">Edit</a>&nbsp;&nbsp;
-                                            <a href="/admin/customers/delete?id=<%=st.getID()%>" onclick="return confirm('Are you sure?')">Delete</a>
-                                        </td>
+                                        <td><a href="/admin/customers/detail?id=<%=st.getID()%>">Detail</a>&nbsp</td>
+                                        <td><a href="/admin/customers/edit?id=<%=st.getID()%>">Edit</a>&nbsp</td>
+                                        <td><a href="/admin/customers/delete?id=<%=st.getID()%>" onclick="return confirm('Are you sure?')">Delete</a>&nbsp</td>
                                     </tr>
                                     <%}%>
                                     </tbody>
@@ -77,7 +77,9 @@
                                         <th>Name</th>
                                         <th>Phone</th>
                                         <th>Joined At</th>
-                                        <th>Action</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     </tfoot>
                                 </table>

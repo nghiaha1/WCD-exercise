@@ -77,17 +77,6 @@
                             <div class="card-body">
                                 <form action="<%=url%>" method="post">
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Customer's ID</label>
-                                                <input type="text" name="id" value="<%=customer.getID()%>" class="form-control" placeholder="Please enter customer's ID">
-                                                <%if(errors.containsKey("phone")){%>
-                                                <span class="text-danger">* <%=errors.get("ID")%></span>
-                                                <%}%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
